@@ -40,4 +40,14 @@ public class School {
         }
         return null;
     }
+
+    public List<Course> findCoursesByStudentId(int matriculationnumber) {
+        List<Course> studentCourses = new ArrayList<>();
+        for (Student student : studentList) {
+            if (student.getMatriculationnumber() == matriculationnumber) {
+                studentCourses.addAll(student.addCourse());
+            }
+        }
+        return studentCourses;
+    }
 }

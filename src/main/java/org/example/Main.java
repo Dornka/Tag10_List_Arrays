@@ -13,9 +13,20 @@ public class Main {
 
         List<Student> studentlist = new ArrayList<>();
 
-        school.addStudent(new Student("Maik", "Herrmann", 13007));
-        school.addStudent(new Student("Peter", "Beinhard", 67890));
-        school.addStudent(new Student("Tina", "Bierfrau", 12345));
+        Student student1 = new Student("Max", "Mustermann", 12345);
+        Student student2 = new Student("Anna", "Musterfrau", 54321);
+        Student student3 = new Student("Tina", "Bierfrau", 12345);
+        Course course1 = new Course("Mathematik", "Prof. Müller", "Raum 101");
+        Course course2 = new Course("Informatik", "Prof. Schmidt", "Raum 102");
+
+        student1.addCourse(course1);
+        student2.addCourse(course1);
+        student2.addCourse(course2);
+        student3.addCourse(course1);
+        school.addStudent(student1);
+        school.addStudent(student2);
+
+
 
         school.printAllStudents();
 
@@ -35,6 +46,16 @@ public class Main {
             System.out.println("Student mit der Matrikelnummer " + removingmarticulationnumber + " wurde entfernt.");
         } else {
             System.out.println(" Studen mit der Matrikelnummer " + removingmarticulationnumber + " konnte nicht gefunden werden.");
+        }
+
+        List<Course> studentCourses = school.findCoursesByStudentId(searchnumber);
+        if (!studentCourses.isEmpty()) {
+            System.out.println("Kurse für Student mit Matrikelnummer " + searchnumber + ":");
+            for (Course course : studentCourses) {
+                System.out.println(course);
+            }
+        } else {
+            System.out.println("Keine Kurse gefunden für Student mit Matrikelnummer " + searchnumber + ".");
         }
     }
 }
