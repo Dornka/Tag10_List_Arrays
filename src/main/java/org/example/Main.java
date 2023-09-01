@@ -19,5 +19,22 @@ public class Main {
 
         school.printAllStudents();
 
+        int searchnumber = 13007;
+        Student foundstudent = school.findStudentById(searchnumber);
+
+        if (foundstudent != null) {
+            System.out.println("Gefundener Studen: " + foundstudent);
+        } else {
+            System.out.println("Student mit Martikelnummer " + searchnumber + " nicht gefunden.");
+        }
+
+        int removingmarticulationnumber = 12345;
+        boolean removed = school.removeStudentById(removingmarticulationnumber);
+
+        if (removed) {
+            System.out.println("Student mit der Matrikelnummer " + removingmarticulationnumber + " wurde entfernt.");
+        } else {
+            System.out.println(" Studen mit der Matrikelnummer " + removingmarticulationnumber + " konnte nicht gefunden werden.");
+        }
     }
 }
